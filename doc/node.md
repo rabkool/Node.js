@@ -2,12 +2,12 @@
 
 - 创建JavaScript文件
   - 输入Hello World
-
 - 终端运行文件
-
 - 输入 `node 文件名`  执行对应文件
-
-
+- p.s.
+  - var定义的变量，没有块的概念，可以跨块访问, 不能跨函数访问。
+  - let定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问。
+  - const用来定义常量，使用时必须初始化(即必须赋值)，只能在块作用域里访问，而且不能修改。
 
 ## 内置对象
 
@@ -26,6 +26,45 @@
 
 - __filename 获取当前运行文件的目录,绝对路径
 - __dirname 当前运行文件的绝对路径
+
+#### node.js实现规范
+
+- CommonJS : 规范JavaScript作为后端语言运行的标准
+  - 如何写模块 Module:
+    - 依赖一个模块	require('模块名(id)')
+    - 需要被模块依赖 module.exports = 给外部的数据
+    - 一个文件是一个模块
+
+#### 核心对象path
+
+-  `const path = requore('path');`
+
+- 路径 不负责判断路径是否存在文件
+
+- 拼接并修正路径`path.join(__dirname,'a','b');`当前路径/a/b
+
+- `path.resovle('./xxx')相对转绝对`
+
+- 接受一个合法路径字符串转成一个对象
+
+  - `let str = path.format(pathObj);`
+
+    ```javascript
+    {root: 'c:\\',
+     dir: 'c:\\user\\rabkool',
+     ext: '.txt',
+     name: 'rabkool'}
+    ```
+    
+
+-  parse解析成对象，format转成字符串,join拼接修正
+
+- 对于修改路可以用bass属性更改，不能用name，ext更改
+
+  
+
+
+
 
  
 
